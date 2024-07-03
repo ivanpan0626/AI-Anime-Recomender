@@ -1,0 +1,21 @@
+.model-items{
+  color: black;
+}
+
+button {
+  margin-right: 50px;
+  width: 100px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+a {
+  margin-right: 200px;
+}
+
+input {
+  margin-bottom: 100px;
+  border-radius: 5px;
+  text-align: center;
+}
+
