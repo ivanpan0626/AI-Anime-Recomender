@@ -1,17 +1,33 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import axios from 'axios';
+import './reccomend.css';
 
 function ReccomendationsPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState("");
+  const [favorites, setFavorites] = useState([]);
   const [anime, setAnime] = useState([]);
   const [query, setQuery] = useState();
   const getToken = sessionStorage.getItem("accessToken");
   const api = axios.create({
-    baseURL: 'http://127.0.0.1:5000',  // Your Flask backend URL
+    baseURL: 'http://127.0.0.1:5000',
     withCredentials: true,  // Include cookies in requests
   })
+
+    const handleCheckboxClick = (e) => {
+      const parentE = e.target.parentElement
+      if (e.target.checked == true){
+        parentE.children[1].classList.add('active')
+        addFavorite(parentE.parentElement.children[3].innerHTML)
+      }
+      else{
+        parentE.children[1].classList.remove('active')
+        removeFavorite(parentE.parentElement.children[3].innerHTML)
+      }
+
+      console.log('Checkbox clicked. Current state:', e.target.checked);
+    };
 
   //On page refresh or load, automatically checks for token to ensure its a valid user
   useEffect(() => {
@@ -25,6 +41,7 @@ function ReccomendationsPage() {
     const response = await api.get('/get-user')
     .then(response =>{
       setUser(response.data.user)
+      setFavorites(response.data.favoritesList)
     })
     .catch(error => {
       console.error("Error:", error.response.data.message)
@@ -42,6 +59,32 @@ function ReccomendationsPage() {
       //console.error("Error:", error.response.data.message)
     })
   };
+
+  const addFavorite = async (animeTitle) => {
+    const data = {
+      animeTitle
+    };
+    const response = await api.post('/anime/add-fav', data)
+      .then(response =>{
+        console.log(response.data.message)
+      })
+      .catch(error => {
+        console.error("Error:", error.response.data.message)
+      })
+  };
+
+  const removeFavorite = async (animeTitle) => {
+    const data = {
+      animeTitle
+    };
+    const response = await api.post('/anime/remove-fav', data)
+      .then(response =>{
+        console.log(response.data.message)
+      })
+      .catch(error => {
+        console.error("Error:", error.response.data.message)
+      })
+  }
 
   return (
     <>
@@ -67,6 +110,7 @@ function ReccomendationsPage() {
             <td><strong>Title</strong></td>
             <td><strong>Synopsis</strong></td>
             <td><strong>Genre</strong></td>
+            <td><strong>Favorite</strong></td>
           </tr>
           {anime.map((animes, index) => (
                     <tr key={index}>
@@ -77,7 +121,25 @@ function ReccomendationsPage() {
                         <td width="5%">{animes.score}</td>
                         <td width="10%">{animes.title}</td>
                         <td width="50%">{animes.synopsis}</td>
-                        <td width="11%">{animes.genre}</td>
+                        <td width="10%">{animes.genre}</td>
+                        <td width="1%">
+                        {favorites.includes(animes.title) ? (<>
+                          <input type="checkbox" id={index} className="demo" onClick={handleCheckboxClick} defaultChecked/>
+                            <label htmlFor={index} className="active">
+                              <div className="h_container">
+                                <i id="heart" className="far fa-heart"></i>
+                              </div>
+                            </label>
+                            </>) :
+                            (<>
+                              <input type="checkbox" id={index} className="demo" onClick={handleCheckboxClick}/>
+                                <label htmlFor={index}>
+                                  <div className="h_container">
+                                    <i id="heart" className="far fa-heart"></i>
+                                  </div>
+                                </label>
+                                </>)}
+                        </td>
                     </tr>
                 ))}
         </tbody>

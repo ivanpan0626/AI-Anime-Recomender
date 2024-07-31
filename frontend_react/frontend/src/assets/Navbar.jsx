@@ -7,7 +7,7 @@ function Navbar({}) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const getToken = sessionStorage.getItem("accessToken");
   const api = axios.create({
-    baseURL: 'http://127.0.0.1:5000',  // Your Flask backend URL
+    baseURL: 'http://127.0.0.1:5000',
     withCredentials: true,  // Include cookies in requests
   })
 
@@ -90,9 +90,6 @@ function Navbar({}) {
                 </>
               ) : (
                 <>
-                  <a className="nav-item nav-link" id="logo-page" href="/">
-                    Home
-                  </a>
                 </>
               )}
             </div>

@@ -5,6 +5,7 @@ import axios from 'axios';
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const getToken = sessionStorage.getItem("accessToken")
   const api = axios.create({
     baseURL: 'http://127.0.0.1:5000',  // Your Flask backend URL
@@ -25,6 +26,7 @@ function LoginPage() {
       })
       .catch(error => {
         console.error("Error:", error.response.data.message)
+        setErrorMessage(error.response.data.message);
       })
   };
   
@@ -33,6 +35,7 @@ function LoginPage() {
       <Navbar></Navbar>
       {getToken && getToken!="" && getToken!=undefined ? 
       (<><h1>You are logged in {getToken}</h1></>) : (<>
+      {errorMessage !== '' && <div className="error-message" style={{backgroundColor:'crimson'}}><h3>{errorMessage}</h3></div>}
         <form onSubmit={onSubmit}>
         <h3 align="center">Login</h3>
         <div className="form-group">

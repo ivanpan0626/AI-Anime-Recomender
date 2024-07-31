@@ -1,0 +1,23 @@
+.h_container{
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    display: inline-block;
+    width:35px;
+    height:35px;
+    text-align:center;
+    line-height:45px;
+
+}
+#heart{
+    font-size: 25px;
+}
+#heart:hover{
+    color: red;
+}
+.demo {
+    display: none;
+}
+
+.active{
+    color: red;
+}

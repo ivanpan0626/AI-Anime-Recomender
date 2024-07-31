@@ -21,6 +21,7 @@ def search(animeTitle):
     indexes = np.argpartition(similarity, -5)[-5:]
     results = animes_df.iloc[indexes][::-1]
     results_subset = results[["popularity", "title", "genre", "img_url", 'synopsis', 'score']]
+    results_subset = results_subset.fillna(0)
     return results_subset.to_dict(orient='records')
 
 def searchID(animeTitle):

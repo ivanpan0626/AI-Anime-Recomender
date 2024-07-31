@@ -1,6 +1,6 @@
 from flask import request, jsonify, redirect, Blueprint, make_response
 from . import db, jwt
-from .models import User
+from .models import User, Favorite
 from flask_jwt_extended import create_access_token, get_jwt, get_jwt_identity, jwt_required, current_user, unset_jwt_cookies, set_access_cookies
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -65,4 +65,8 @@ def logout():
 @auth.route('/get-user', methods=["GET"])
 @jwt_required()
 def get_user():
-    return jsonify({"user": current_user.username}), 200
+    favorites = Favorite.query.filter_by(user_id=current_user.id).all()
+    titlesList = []
+    for favorite in favorites:
+        titlesList.append(favorite.title)
+    return jsonify({"user": current_user.username, "favoritesList": titlesList}), 200
