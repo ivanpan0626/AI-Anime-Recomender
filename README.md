@@ -3,7 +3,7 @@ This project involves creating a web application using Flask for the backend and
 
 # Skills Utilized
 ### Backend (Flask)
-- API Endpoints: Developed RESTful API endpoints to handle client requests.
+- API Endpoints: Developed personal API endpoints to handle client requests.
 - Cookie Authentication (JWT): Implemented JWT for secure user authentication using cookies.
 - SQL Database: Managed user data using an SQL database.
 - Jupyter Notebook: Used for setting up dataframes, organizing CSV files, and developing algorithms. Functions were then imported into Flask.
