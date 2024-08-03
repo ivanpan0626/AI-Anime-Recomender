@@ -1,7 +1,7 @@
 # Full Stack Website
 (lacking on website designs as it wasn't the focus)
 
--Flask for backend
+*Flask for backend
 	-API endpoints
 	-Cookies authentication using JWT
 	-SQL database to handle multiple users data
