@@ -12,7 +12,8 @@
 	- Self created modal design for the signup page to pop up on any page
 	- Axios for API calls from client to the server
 	- Some CSS styling, and HTML for favorites button and forms.
-Many more features to be added in the future such as email auth, better website design, updated anime list with top favorites etc 
+
+- Many more features to be added in the future such as email auth, better website design, updated anime list with top favorites etc 
 
 Click to watch Demo Video
 [![Watch the video](https://raw.githubusercontent.com/ivanpan0626/AI-Anime-Recomender/main/animeDemoIMG.png)](https://youtu.be/pazGP9MJ0Rg)
