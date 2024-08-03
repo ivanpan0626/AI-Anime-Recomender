@@ -1,12 +1,9 @@
 # Full Stack Website
 (lacking on website designs as it wasn't the focus)
 
-*Flask for backend
-	-API endpoints
-	-Cookies authentication using JWT
-	-SQL database to handle multiple users data
-	-Juptyer Notebook to set up dataframe, organize CSV, and Algorithm
-		-Functions imported to Flask
+<uL>
+	Flask for backend
+</uL>
 -React for frontend
 	- Usage of Router for multi page rendering
 	- Querying from databse for search function
