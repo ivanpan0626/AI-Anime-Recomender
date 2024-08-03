@@ -1,4 +1,5 @@
-# Full Stack Website
+# Anime Show Recommendation System
+This project involves creating a web application using Flask for the backend and React for the frontend. The application includes various features such as API endpoints, user authentication, data handling, and a dynamic user interface. The purpose of this webapp is provide users with anime shows to watch for their pasttime. 
 
 # Skills Utilized
 ### Backend (Flask)
