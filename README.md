@@ -7,7 +7,7 @@ This project involves creating a web application using Flask for the backend and
 - Cookie Authentication (JWT): Implemented JWT for secure user authentication using cookies.
 - SQL Database: Managed user data using an SQL database.
 - Jupyter Notebook: Used for setting up dataframes, organizing CSV files, and developing algorithms. Functions were then imported into Flask.
-- Data Handling: Organized and processed data efficiently within Flask.
+- Data Handling: Organized and processed data efficiently within Flask designed through JupyterNoteBook.
 ### Frontend (React)
 - React Router: Implemented routing for multi-page rendering.
 - Database Querying: Implemented search functions to query the database.
