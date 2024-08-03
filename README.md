@@ -1,10 +1,12 @@
 # Full Stack Website
 - Flask for Backend
-	- sd
- - sd
- - 
+	- API endpoints
+	- Cookies authentication using JWT
+	- SQL database to handle multiple users data
+	- Juptyer Notebook to set up dataframe, organize CSV, and Algorithm
+ 	- Functions imported to Flask
 
--React for frontend
+- React for frontend
 	- Usage of Router for multi page rendering
 	- Querying from databse for search function
 	- Self created modal design for the signup page to pop up on any page
