@@ -1,6 +1,8 @@
 # Full Stack Website
 - Flask for Backend
-- 	sd
+	- sd
+ - sd
+ - 
 
 -React for frontend
 	- Usage of Router for multi page rendering
