@@ -1,9 +1,6 @@
 # Full Stack Website
-(lacking on website designs as it wasn't the focus)
+-Flask for Backend
 
-<uL>
-	Flask for backend
-</uL>
 -React for frontend
 	- Usage of Router for multi page rendering
 	- Querying from databse for search function
